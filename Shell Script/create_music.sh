@@ -97,8 +97,6 @@ do
 		t=$(echo "$line" | tr -s "$char" '*')	
 		title=$(echo "$t" | cut -d'*'  -f2 | cut -d'|' -f2 | tr -s '[]""' ' ' | sed 's/ *//' | sed 's/ *$//')
 
-
-		
 		title=$(echo "$title" | tr '/' '-')
 		mp3name="$track - $title - $artist.mp3"
 		touch "$mp3name"
@@ -114,12 +112,4 @@ do
 	fi
 					
 done < "$web_file"
-
-
-
 rm "$web_add"
-
-
-
-
-
