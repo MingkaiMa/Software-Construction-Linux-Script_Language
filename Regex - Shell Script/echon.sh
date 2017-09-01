@@ -1,3 +1,6 @@
+#Write a shell script a program echon.sh which given exactly two arguments, 
+#an integer n and a string, prints the string n times. For example:
+
 #!/bin/sh
 if test "$#" -ne 2
 then
