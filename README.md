@@ -1,3 +1,3 @@
 # Software-Construction-Linux-Script_Language
 
-Continue to update... 
+Continually updated
