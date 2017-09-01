@@ -1,3 +1,6 @@
+#Write a shell script courses.sh which prints a list of UNSW courses 
+#with the given prefix by extracting them from the UNSW handbook webpages. For example:
+
 #!/bin/sh
 
 if ! test "$#" -eq 1
