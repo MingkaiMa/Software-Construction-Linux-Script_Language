@@ -1,0 +1,40 @@
+
+Regex question: 
+Write a shell pipeline to print how many classes there are.
+Hint: the output of the pipeline should be:
+381
+
+Write a shell pipeline to print how many different courses have classes?
+Hint: cut with the -f option will be useful here.
+Hint: the output of the pipeline should be:
+42
+
+Write a shell pipeline which will print the course with the most classes (and no other courses) and how many classes are in this course?
+Hint: the output of the pipeline should be:
+     30 COMP1521
+     
+Write a shell pipeline that prints the room most frequently-used room by CSE classes how often it is used?
+Don't include the CSE lab rooms.
+
+Hint: the output of the pipeline should be:
+     15 Quad G054
+     
+Write a shell pipeline that prints the most popular time-of-day for classes to start and how many classes start at that time?
+Hint: cut has a -c option.
+
+Hint: the output of the pipeline should be:
+     19 Thu 16
+     
+Challenge: write a shell pipeline that prints a list of the course codes (only) of COMP courses that run 2 or more classes of the same type starting at the same time on the same day? (e.g. three tut-labs starting Monday at 10:00)
+Hint: this should be the output of your pipeline:
+COMP1511
+COMP1521
+COMP1531
+COMP2041
+COMP2521
+COMP3331
+COMP3421
+COMP9041
+COMP9323
+COMP9331
+COMP9415
