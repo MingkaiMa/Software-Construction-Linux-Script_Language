@@ -1,18 +1,3 @@
-#Write a Perl script which prints courses which can be used to meet prerequisite requirements for a UNSW course. For example:
-#./prereq.pl COMP2041
-#COMP1511
-#COMP1917
-#COMP1921
-#./prereq.pl COMP9041
-#COMP9021
-#./prereq.pl COMP9242
-#COMP3231
-#COMP3891
-#COMP9201
-#COMP9283
-#./prereq.pl HESC3641
-#HESC2501
-
 #!/usr/bin/perl -w
 
 @result = ();
@@ -31,48 +16,49 @@ close F;
 
 #print "Undergraduate\n";
 foreach $line (@lines_1){
-        if($line =~ m/Prerequisite/){
-#               print $line;
-                my @list = split /<p>/, $line;
-                my $pre_1 = $list[1];
-                $pre_1 =~ s/Prerequisite[s]*//g;
-                $pre_1 =~ s/Corequisite[s]*//;
-                $pre_1 =~ s/\.*<\/p>//;
-#               $pre_1 =~ s/[^A-Z]*//;
-                $pre_1 =~ s/[^A-Z0-9]/:/g;
-                $pre_1 =~ s/:+/:/g;
+	if($line =~ m/Prerequisite/){
+#		print $line;
+		my @list = split /<p>/, $line;
+		my $pre_1 = $list[1];
+		$pre_1 =~ s/Prerequisite[s]*//g;
+		$pre_1 =~ s/Corequisite[s]*//;
+	        $pre_1 =~ s/\.*<\/p>//;
+#		$pre_1 =~ s/[^A-Z]*//;
+		$pre_1 =~ s/[^A-Z0-9]/:/g;
+		$pre_1 =~ s/:+/:/g;
 
-                my @pre_1_list = split /:/, $pre_1;
-                foreach (@pre_1_list){
-                        push @result, $_ if ($_ and length($_) == 8);
-                }
-#               print "$pre_1\n";
-        }
+		my @pre_1_list = split /:/, $pre_1;
+		foreach (@pre_1_list){
+			push @result, $_ if ($_ and length($_) == 8);
+		}
+#		print "$pre_1\n";
+	}
 }
 
 #print "Postgraduate\n";
 foreach $line (@lines_2){
-        if($line =~ m/Prerequisite/){
-                #print $line;
-                my @list = split /<p>/, $line;
-                my $pre_2 = $list[1];
+	if($line =~ m/Prerequisite/){
+		#print $line;
+		my @list = split /<p>/, $line;
+	        my $pre_2 = $list[1];
                 $pre_2 =~ s/Prerequisite[s]*//g;
-                $pre_2 =~ s/Corequisite[s]*//g;
-                $pre_2 =~ s/\.*<\/p>//;
-        #       $pre_2 =~ s/[^A-Z]*//;
-                $pre_2 =~ s/[^A-Z0-9]/:/g;
-                $pre_2 =~ s/:+/:/g;
-
-                my @pre_2_list = split /:/, $pre_2;
-                foreach (@pre_2_list){
-                        push @result, $_ if($_ and length($_) == 8);
-                }
-                #print "$pre_2\n";
-        }
+		$pre_2 =~ s/Corequisite[s]*//g;
+   		$pre_2 =~ s/\.*<\/p>//;
+	#	$pre_2 =~ s/[^A-Z]*//;
+		$pre_2 =~ s/[^A-Z0-9]/:/g;
+		$pre_2 =~ s/:+/:/g;
+         
+		my @pre_2_list = split /:/, $pre_2;
+		foreach (@pre_2_list){
+			push @result, $_ if($_ and length($_) == 8);
+		}		
+		#print "$pre_2\n";
+	}
 }
 
 @result = sort @result;
 
 foreach(@result){
-        print "$_\n";
+	print "$_\n";
 }
+
