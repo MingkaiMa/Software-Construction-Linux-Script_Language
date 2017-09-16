@@ -12,3 +12,4 @@ foreach $line (<F>){
 	}
 	$n++;
 }
+close F;
